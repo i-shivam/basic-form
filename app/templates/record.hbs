@@ -1,0 +1,65 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"><code>AadharNo</code></th>
+        <th scope="col"><code>First</code></th>
+        <th scope="col"><code>Last</code></th>
+        <th scope="col"><code>Email</code></th>
+        <th scope="col"><code>DOB</code></th>
+        <th scope="col"><code>Mobile</code></th>
+        <th scope="col"><code>Address</code></th>
+        <th scope="col"><code>City</code></th>
+        <th scope="col"><code>State</code></th>
+        <th scope="col"><code>Zip</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.model as |person|}}
+        <tr data-target="#recordModal{{person.id}}" data-toggle="modal">
+          <td>{{person.id}}</td>
+          <td>{{person.firstName}}</td>
+          <td>{{person.lastName}}</td>
+          <td>{{person.email}}</td>
+          <td>{{person.dateOfBirth}}</td>
+          <td>{{person.mobile}}</td>
+          <td>{{person.address}}</td>
+          <td>{{person.cityName}}</td>
+          <td>{{person.state}}</td>
+          <td>{{person.areaZip}}</td>
+        </tr>
+        <div class="modal container" id="recordModal{{person.id}}" tabindex="-1">
+          <div class="modal-dailog">
+            <div class="modal-content">
+              <div class="modal-headar">
+                <h2 class="modal-title text-center">Person Details</h2>
+              </div>
+              <div class="modal-body d-flex">
+                <div><code>Name: </code>{{person.fullName}}</div>
+                <div><code>Email ID: </code>{{person.email}}</div>
+                <div><code>Date Of Birth: </code>{{person.dateOfBirth}}</div>
+                <div><code>Mobile No: </code>{{person.mobile}}</div>
+                <div><code>Address: </code>{{person.address}}</div>
+                <div>
+                  <code>CityName: </code>{{person.cityName}} <code>State: </code>{{person.state}}
+                  <code>Area Zip: </code>{{person.areaZip}}
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal">
+                  <LinkTo @route="home" @query={{hash category="edit" id=person.id}}>updateRecord</LinkTo>
+                </button>
+                <button class="btn btn-warning" {{action "deleteRecord" person.id}}
+                    data-dismiss="modal">
+                  deleteRecord
+                </button>
+                <button class="btn btn-danger" data-dismiss="modal">close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </tbody>
+  </table>
+  <LinkTo class="btn btn-success pull-right" @route="home" @query={{hash category="create"}} id="test">+</LinkTo>
+</div>

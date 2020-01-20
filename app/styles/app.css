@@ -1,0 +1,21 @@
+.container > nav{
+    margin-top: 20px;
+}
+td,th
+{
+    max-width: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+th {
+text-align: center;
+}
+.modal-dailog {
+    -webkit-transform: translate(0,50%);
+    -o-transform: translate(0,50%);
+    transform: translate(0,50%);
+}
+.modal-content{
+color: rgb(1, 10, 14);
+}

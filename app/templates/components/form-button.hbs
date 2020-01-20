@@ -1,0 +1,31 @@
+<div class="form-group col-md-12">
+  <div class="form-group">
+    <div class="form-check">
+      <input type="checkbox" value="" id="invalidCheck3" required>
+      <label for="invalidCheck3">
+        check me out
+      </label>
+      <div >
+        You must agree before submitting.
+      </div>
+      <button class="btn btn-primary" {{action recordPage}}>Submit</button>
+      <button class="btn btn-danger" data-target="#recordModal" data-toggle="modal">check if already registerd</button>
+      <div class="modal container" id="recordModal" tabindex="-1">
+        <div class="modal-dailog">
+          <div class="modal-content text-center">
+            <div class="modal-headar">
+              <h2>Record Check</h2>
+            </div>
+            <div class="modal-body">
+              <label for="userFirstName">Input your Aadhar Number to be Checked....</label>
+              {{input value=aadharNo placeholder="Aadhar No" type="text" }}
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-danger" data-dismiss="modal" {{action check aadharNo}}>check</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

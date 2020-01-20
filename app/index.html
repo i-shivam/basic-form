@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" http-equiv="Content-Security-Policy" content="default-src * ;script-src * 'unsafe-eval';style-src * 'unsafe-inline'">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BasicForm</title>
     <meta name="description" content="">
@@ -11,7 +11,11 @@
 
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/basic-form.css">
-
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
     {{content-for "head-footer"}}
   </head>
   <body>
