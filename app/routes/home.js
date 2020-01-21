@@ -9,7 +9,6 @@ export default Route.extend({
     
    
     model(val){
-            
         if(val.category =='create'){
           var newPerson = this.store.createRecord('person',{
                 id : this.id,

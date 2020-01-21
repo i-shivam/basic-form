@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import EmberResolver from 'ember-resolver';
 // import { computed } from '@ember/object';
 
 export default Controller.extend({
@@ -56,26 +57,27 @@ export default Controller.extend({
     actions: {
         addRecord() {
             // let self = this;
-            jQuery.ajax({
-                url: "localhost:8000/people",
+            $.ajax({
+                url: "http://localhost:8000/people",
                 type: "POST",
-                data: JSON.stringify({
-                    "data": {
-                        "id": this.get('id'),
-                        "firstName": this.get('firstName'),
-                        "lastName": this.get('lastName'),
-                        "email": this.get('email'),
-                        "dateOfBirth": this.get('dateOfBirth'),
-                        "mobile": this.get('mobile'),
-                        "address": this.get('address'),
-                        "cityName": this.get('cityName'),
-                        "state": this.get('state'),
-                        "areaZip": this.get('areaZip')
-                    }
-                })
+                data: {
+                        "id": this.model.get('id'),
+                        "type": "person",
+                        "attributes" : {
+                        "firstName": this.model.get('firstName'),
+                        "lastName": this.model.get('lastName'),
+                        "email": this.model.get('email'),
+                        "dateOfBirth": this.model.get('dateOfBirth'),
+                        "mobile": this.model.get('mobile'),
+                        "address": this.model.get('address'),
+                        "cityName": this.model.get('cityName'),
+                        "state": this.model.get('state'),
+                        "areaZip": this.model.get('areaZip')
+                        }
+                }
             }).then(() => {
-                return this.transitionToRoute('record');
-            })
+             this.transitionToRoute('record');
+            });
             // .catch(function (error) {
             //     self.set('errorMessage', error.error || error);
             // });
