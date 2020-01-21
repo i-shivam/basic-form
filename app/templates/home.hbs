@@ -1,6 +1,5 @@
 <div class="container">
-  <form method="POST">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+  <form>
     <div class="form-group col-md-6">
       <label for="uniqueNo">AadharNo</label>
       {{input value=model.id class="form-control" placeholder="1" type="text"}}
@@ -45,6 +44,6 @@
         {{input type="text" class="form-control" value=model.areaZip placeholder=123456 }}
       </div>
     </div>
-    {{form-button isValid=isFormValid recordPage=(action "addRecord" model) check=(action "checkAadhar")}} 
+    {{form-button isValid=isFormValid recordPage=(action "addRecord") check=(action "checkAadhar")}} 
   </form>
 </div>

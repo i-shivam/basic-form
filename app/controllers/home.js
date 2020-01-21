@@ -56,14 +56,13 @@ export default Controller.extend({
     //    }
     actions: {
         addRecord() {
-            // let self = this;
             $.ajax({
                 url: "http://localhost:8000/people",
                 type: "POST",
-                data: {
+                data:{
                         "id": this.model.get('id'),
                         "type": "person",
-                        "attributes" : {
+                        "attributes" :{
                         "firstName": this.model.get('firstName'),
                         "lastName": this.model.get('lastName'),
                         "email": this.model.get('email'),
