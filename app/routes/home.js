@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import person from '../adapters/person';
 
 export default Route.extend({
 

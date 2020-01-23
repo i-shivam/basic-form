@@ -60,9 +60,10 @@ export default Controller.extend({
                 url: "http://localhost:8000/people",
                 type: "POST",
                 data:{
+                    personDetails : JSON.stringify({
                         "id": this.model.get('id'),
                         "type": "person",
-                        "attributes" :{
+                        "attributes" : {
                         "firstName": this.model.get('firstName'),
                         "lastName": this.model.get('lastName'),
                         "email": this.model.get('email'),
@@ -73,6 +74,7 @@ export default Controller.extend({
                         "state": this.model.get('state'),
                         "areaZip": this.model.get('areaZip')
                         }
+                    })
                 }
             }).then(() => {
              this.transitionToRoute('record');
