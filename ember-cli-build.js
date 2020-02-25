@@ -4,9 +4,20 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    origin:"http://localhost:4200",
+    zbsri: {
+      enabled: true,
+      crossorigin: 'anonymous',
+      type: 'all',
+      generateAssetMap: true
+    },
+    fingerprint: {
+      enabled: true,
+      prepend : "http://localhost:4200/",
+      generateAssetMap: true
+    },
+    
   });
-
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

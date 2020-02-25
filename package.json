@@ -52,5 +52,10 @@
   },
   "dependencies": {
     "env-config": "^0.3.0"
+  },
+  "ember-addon": {
+    "paths": [
+      "lib/ember-cli-zbsri"
+    ]
   }
 }
